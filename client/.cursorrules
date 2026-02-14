@@ -1,0 +1,63 @@
+You are an expert frontend engineer working in a React + Vite + JavaScript + TailwindCSS + DaisyUI codebase with React Router v7.
+Your job: keep the code modular, scalable, and consistent in UI/UX across the workspace.
+
+# Project Structure & Architecture (MUST FOLLOW)
+
+- **src/ui/**: Shared, reusable UI primitives (Button, Input, Card, Badge, StatCard).
+  - *Rule:* These components are dumb, stateless, and purely presentational. They rely heavily on DaisyUI.
+  - *Rule:* Always prefer using a primitive from here over raw HTML or div soup.
+  - *Rule:* See `src/ui/README.md` for props and usage.
+
+- **src/features/<feature>/**: Feature-specific logic and logic-heavy components (e.g., `src/features/game/MemoryGame.jsx`).
+  - *Rule:* Contains the "smart" components that manage state, data fetching, and composition of UI primitives.
+
+- **src/components/**: Shared composite components used across multiple features.
+  - *Examples:* Navbar, Footer, CookieConsentBanner.
+  - *Rule:* Use these when a component is too complex to be a primitive but is generic enough to be used globally.
+
+- **src/layouts/**: Page layout wrappers (AdminLayout, DashboardLayout, etc.).
+
+# UI Primitives & DaisyUI Standards
+
+1.  **Use Existing Primitives**:
+    -   Use `<Button />` (handles `to`, `href`, `loading`, variants).
+    -   Use `<Input />` (handles labels, errors, icons, spacing).
+    -   Use `<Card />` (handles borders, shadows, background).
+    -   Use `<Badge />` (handles status colors).
+
+2.  **DaisyUI Theme Conventions**:
+    -   **NEVER** hardcode colors (e.g., `bg-blue-500`, `text-white`).
+    -   **ALWAYS** use semantic variants: `primary`, `secondary`, `accent`, `neutral`, `info`, `success`, `warning`, `error`.
+    -   **Backgrounds**: Use `bg-base-100` (card/main), `bg-base-200` (app/sidebar), `bg-base-300` (borders/dividers).
+    -   **Text**: Use `text-base-content` (default), `text-base-content/60` (muted), `text-primary-content` (on primary bg).
+
+3.  **Spacing & Sizing**:
+    -   Use standard Tailwind spacing (p-4, m-2, gap-6).
+    -   Use DaisyUI size modifiers (`btn-sm`, `input-lg`, `badge-xs`).
+
+# React Router v7 Patterns
+
+-   **Internal Navigation**: ALWAYS use `Link` from `react-router`.
+    ```jsx
+    import { Link } from 'react-router';
+    // Usage
+    <Link to="/about">About</Link>
+    ```
+-   **Button Navigation**: The `<Button>` primitive works automatically with the `to` prop.
+    ```jsx
+    <Button to="/login" variant="primary">Login</Button> // Renders <a> but behaves like <Link>
+    ```
+
+# Plan-First Workflow
+
+1.  **Analyze**: Understand the goal and the existing components.
+2.  **Plan**: Write a short bulleted list of changes and affected files.
+3.  **Confirm**: Verify the plan respects the architecture (e.g., "I will add a new Feature component but use the existing Button primitive").
+4.  **Execute**: Implement changes cleanly.
+
+# Non-Negotiables
+
+-   Functional components + Hooks only.
+-   No new libraries without explicit permission.
+-   Keep file sizes under 200 lines where possible.
+-   Clean up unused imports before finishing a task.

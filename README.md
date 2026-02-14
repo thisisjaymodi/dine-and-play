@@ -1,24 +1,22 @@
 # 🍽️ Dine and Play
 
-A full-stack restaurant management and gaming application built with modern web technologies.
+A modern restaurant management and gaming application frontend built with React and Vite.
 
 ## 📋 Overview
 
-Dine and Play combines restaurant operations with an interactive gaming experience, allowing users to manage dining services while engaging in entertainment activities. The application features a client-side interface and server-side architecture for handling business logic and data management.
+Dine and Play combines restaurant operations with an interactive gaming experience. This repository currently contains the **frontend client**, featuring a responsive user interface for managing dining services and engaging in entertainment activities.
 
 ## ✨ Features
 
 - **Restaurant Management**: Handle orders, menu items, and customer service
 - **Interactive Gaming**: Engage customers with built-in gaming experiences
-- **Real-time Operations**: Monitor and manage restaurant activities in real-time
 - **Responsive Design**: Optimized for desktop and mobile devices
 - **Modern UI/UX**: Clean and intuitive user interface
 
 ## 🚀 Tech Stack
 
-- **Frontend**: React.js with modern JavaScript (ES6+)
-- **Backend**: Node.js with Express
-- **Database**: MongoDB (inferred from MERN stack pattern)
+- **Framework**: React.js (Vite)
+- **Language**: JavaScript (ES6+)
 - **Styling**: CSS3
 - **Package Manager**: npm
 
@@ -30,7 +28,6 @@ dine-and-play/
 │   ├── src/            # Source files
 │   ├── public/         # Static assets
 │   └── package.json    # Client dependencies
-├── server/             # Backend API
 ├── package.json        # Root dependencies
 └── .gitignore         # Git ignore rules
 ```
@@ -41,7 +38,6 @@ dine-and-play/
 
 - Node.js (v14 or higher)
 - npm or yarn
-- MongoDB (local or cloud instance)
 
 ### Setup
 
